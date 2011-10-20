@@ -13,3 +13,14 @@ Redis has what's essentially a dynamic type system, consisting of _ordinals_ (in
 *   RSortedSet
 
 Each has a Scala-looking API.
+
+Usage
+-----
+
+Get in instance of Wasabi:
+
+    import org.wasabiredis._
+    
+    val wasabi = new Wasabi()
+    val detailOrientedWasabi = new Wasabi("localhost", 6973)
+
