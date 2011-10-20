@@ -45,15 +45,30 @@ We can't (yet?) interrogate Redis about types of value at a give key other than 
 It's up to you to make sure that types match what you expect.
 You'll know by the stack traces when you miss.
 
-All RValue APIs fall straigh through to the underlying Jedis calls (which in turn fall straight through to Redis with minor marshalling).
-There's no caching anywhere.
-What you see is that Redis sees.
+All RValue APIs fall straight through to the underlying Jedis calls (which in turn fall straight through to Redis with minor marshalling).
+There's no memoization goingo on.
+What you see is what Redis sees.
 
 RString
 -------
     val s: RString = wasabi.string("long_story")
-    s.get       //  None
+    s.get                       //  None
     s := "The quick brown fox still jumps over the lazy dog"
-    s.get       // Some("The quick ...")
+    s.get                       // Some("The quick ...")
     s += ", and has a chicken while at it"
-    s.get       // Some("The quick ... and has a chicken ...")
+    s.get                       // Some("The quick ... and has a chicken ...")
+
+RLong
+-----
+    val l: RLong = wasabi.long("geiger_counter")
+    l.get                       // None
+    l := 1
+    l.get                       // Some(1)
+    l++                     
+    l.get                       // Some(2)
+    l += 42                     
+    l.get                       //  Some(43)
+    l--                         
+    l.get                       //  Some(42)
+    l-= 16                      
+    l.get                       //  Some(26)
