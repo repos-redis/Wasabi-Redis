@@ -14,6 +14,16 @@ Redis has what's essentially a dynamic type system, consisting of _ordinals_ (in
 
 Each has a Scala-looking API.
 
+Installation
+------------
+At the moment, old-school: 
+
+1. have SBT 0.10.1+
+2. clone this repo
+3. go
+
+    sbt publish_local
+
 Usage
 -----
 
@@ -23,4 +33,13 @@ Get in instance of Wasabi:
     
     val wasabi = new Wasabi()
     val detailOrientedWasabi = new Wasabi("localhost", 6973)
+
+Ask it for the _RValue_ at the key:
+
+    val rl = wasabi.long("some_counter")
+    val rs = wasabi.string("I've seen the future!")
+    val rh = wasabi.hash("map_of_strings")
+    val rl = wasabi.list("shopping")
+    val rs = wasabi.set("disheveled_set")
+    val ss = wasabi.sortedSet("sheveled_set")
 
