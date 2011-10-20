@@ -53,8 +53,10 @@ RString
 -------
     val s: RString = wasabi.string("long_story")
     s.get                       //  None
+    
     s := "The quick brown fox still jumps over the lazy dog"
     s.get                       // Some("The quick ...")
+    
     s += ", and has a chicken while at it"
     s.get                       // Some("The quick ... and has a chicken ...")
 
@@ -62,13 +64,34 @@ RLong
 -----
     val l: RLong = wasabi.long("geiger_counter")
     l.get                       // None
+    
     l := 1
     l.get                       // Some(1)
+    
     l++                     
     l.get                       // Some(2)
+    
     l += 42                     
-    l.get                       //  Some(43)
+    l.get                       // Some(43)
+    
     l--                         
-    l.get                       //  Some(42)
+    l.get                       // Some(42)
+    
     l-= 16                      
-    l.get                       //  Some(26)
+    l.get                       // Some(26)
+
+RHash
+-----
+see source (for now)
+
+RList
+-----
+**not implemented  yet**
+
+RSet
+----
+see source (for now)
+
+RSortedSet
+----------
+see source (for now)
