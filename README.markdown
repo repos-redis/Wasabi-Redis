@@ -20,7 +20,7 @@ At the moment, old-school:
 
 1. have SBT 0.10.1+
 2. clone this repo
-3. go sbt publish_local
+3. go **sbt publish_local**
 
 Usage
 -----
@@ -46,7 +46,7 @@ It's up to you to make sure that types match what you expect.
 You'll know by the stack traces when you miss.
 
 All RValue APIs fall straight through to the underlying Jedis calls (which in turn fall straight through to Redis with minor marshalling).
-There's no memoization goingo on.
+There's no memoization going on.
 What you see is what Redis sees.
 
 RString
@@ -77,7 +77,7 @@ RLong
     l--                         
     l.get                       // Some(42)
     
-    l-= 16                      
+    l -= 16                      
     l.get                       // Some(26)
 
 RHash
