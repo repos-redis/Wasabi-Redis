@@ -15,6 +15,7 @@ class Wasabi(val redisHost: String = "localhost", val redisPort: Int = 6379) ext
 
   def string(key: String) = new RString(jedis, key)
   def long(key: String) = new RLong(jedis, key)
+  def list(key: String)= new RList(jedis, key)
   def hash(key: String) = new RHash(jedis, key)
   def set(key: String) = new RSet(jedis, key)
   def sortedSet(key: String) = new RSortedSet(jedis, key)
