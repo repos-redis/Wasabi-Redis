@@ -20,21 +20,19 @@ At the moment, old-school:
 
 1. have SBT 0.10.1+
 2. clone this repo
-3. go
-
-    sbt publish_local
+3. go sbt publish_local
 
 Usage
 -----
 
-Get in instance of Wasabi:
+Point an instance of Wasabi at your Redis:
 
     import org.wasabiredis._
     
     val wasabi = new Wasabi()
     val detailOrientedWasabi = new Wasabi("localhost", 6973)
 
-Ask it for the _RValue_ at the key:
+And ask it for the _RValue_ at the key:
 
     val rl = wasabi.long("some_counter")
     val rs = wasabi.string("I've seen the future!")
@@ -43,3 +41,19 @@ Ask it for the _RValue_ at the key:
     val rs = wasabi.set("disheveled_set")
     val ss = wasabi.sortedSet("sheveled_set")
 
+We can't (yet?) interrogate Redis about types of value at a give key other than try-and-hope-it-don't blow.
+It's up to you to make sure that types match what you expect.
+You'll know by the stack traces when you miss.
+
+All RValue APIs fall straigh through to the underlying Jedis calls (which in turn fall straight through to Redis with minor marshalling).
+There's no caching anywhere.
+What you see is that Redis sees.
+
+RString
+-------
+    val s: RString = wasabi.string("long_story")
+    s.get       //  None
+    s := "The quick brown fox still jumps over the lazy dog"
+    s.get       // Some("The quick ...")
+    s += ", and has a chicken while at it"
+    s.get       // Some("The quick ... and has a chicken ...")
