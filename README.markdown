@@ -41,7 +41,7 @@ And ask it for the _RValue_ at the key:
     val rs = wasabi.set("disheveled_set")
     val ss = wasabi.sortedSet("sheveled_set")
 
-We can't (yet?) interrogate Redis about types of value at a give key other than try-and-hope-it-don't blow.
+We can't (yet?) interrogate Redis about the type of value at a given key, other than _try-and-hope-it-don't blow_.
 It's up to you to make sure that types match what you expect.
 You'll know by the stack traces when you miss.
 
