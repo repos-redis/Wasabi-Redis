@@ -1,7 +1,5 @@
 // set the name of the project
 
-organization := "com.merkurial"
-
 resolvers += "Java.net Maven2 Repository" at "http://download.java.net/maven/2/"
 
 libraryDependencies ++= Seq(

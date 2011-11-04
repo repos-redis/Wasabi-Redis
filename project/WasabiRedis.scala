@@ -21,8 +21,8 @@ object WasabiRedis extends Build {
   import Resolvers._
   import Dependencies._
 
-  val _version = "0.1"
-  val _organization = "Wasabi-Redis"
+  val _version = "0.1-SNAPSHOT"
+  val _organization = "org.wasabiredis"
 
   lazy val core = Project("wasabiredis", file("."), settings = Defaults.defaultSettings ++ Seq(
     name := "wasabiredis",

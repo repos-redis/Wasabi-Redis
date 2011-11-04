@@ -27,6 +27,8 @@ sealed class RString private[wasabiredis](protected val jedis: Jedis, protected 
 
   def :=(value: String) = jedis.set(key, value)
 
+  def <:=(value: String) = jedis.setnx(key, value)
+
   def +=(value: String) = jedis.append(key, value)
 }
 
